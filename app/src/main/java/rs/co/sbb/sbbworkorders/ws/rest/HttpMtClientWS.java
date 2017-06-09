@@ -45,9 +45,7 @@ public class HttpMtClientWS {
                 @Override
                 public Response intercept(Interceptor.Chain chain) throws IOException {
                     Request request = chain.request();
-                   /* HttpUrl url = request.url();
-                    url = url.newBuilder().username(MTRestWSConfig.user).password(MTRestWSConfig.pass).build();
-                    Request newRequest = request.newBuilder().url(url).build();*/
+
                    Request.Builder builder = request.newBuilder().header("Authorization", Credentials.basic(MTRestWSConfig.user,MTRestWSConfig.pass));
 
                     Request newRequest = builder.build();
