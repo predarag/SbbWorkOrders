@@ -7,7 +7,9 @@ package rs.co.sbb.sbbworkorders.entity.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GetWoResponse {
+import java.io.Serializable;
+
+public class GetWoResponse implements Serializable{
 
     @SerializedName("status")
     @Expose

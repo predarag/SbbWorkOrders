@@ -3,11 +3,13 @@ package rs.co.sbb.sbbworkorders.entity.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by Predrag.Tasic on 6/7/2017.
  */
 
-public class LoginResponse {
+public class LoginResponse implements Serializable{
 
     @SerializedName("statusCode")
     @Expose

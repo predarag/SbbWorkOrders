@@ -25,6 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rs.co.sbb.sbbworkorders.entity.response.GetWoResponse;
 import rs.co.sbb.sbbworkorders.entity.response.LoginResponse;
 import rs.co.sbb.sbbworkorders.utils.SaveSharedPreference;
 import rs.co.sbb.sbbworkorders.ws.rest.config.MTRestWSConfig;
@@ -83,5 +84,18 @@ public class HttpMtClientWS {
 
     }
 
+
+    public Call<GetWoResponse> getWoResponse(String transactionNo){
+
+        Log.i("getWoResponse","usao sa paremetrom: "+transactionNo);
+
+        HttpMtService service = retrofit.create(HttpMtService.class);
+
+        Call<GetWoResponse> call = service.getWoResponse(transactionNo);
+
+        Log.i("getWoResponse",call.request().url().toString());
+
+        return  call;
+    }
 
 }

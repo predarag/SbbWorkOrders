@@ -4,10 +4,15 @@ package rs.co.sbb.sbbworkorders.entity.response;
  * Created by Predrag.Tasic on 6/7/2017.
  */
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Etizlaz {
+import java.io.Serializable;
+
+public class Etizlaz implements Serializable{
+
+    private static final long serialVersionUID = 1488547193398969477L;
 
     @SerializedName("SRV_CUST_BEG_D")
     @Expose

@@ -20,4 +20,13 @@
 
     <string name="navigation_drawer_open">Otvori meni</string>
     <string name="navigation_drawer_close">Zatvori meni</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="workorder_no">Broj radnog naloga</string>
+
+    <string name="search">Trazi</string>
+    <string name="title_activity_workorder_result">WorkorderResultActivity</string>
+
 </resources>

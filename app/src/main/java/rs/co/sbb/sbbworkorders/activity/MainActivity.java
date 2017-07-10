@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,10 +24,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import rs.co.sbb.sbbworkorders.R;
+import rs.co.sbb.sbbworkorders.activity.dummy.DummyContent;
 import rs.co.sbb.sbbworkorders.utils.SaveSharedPreference;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,  SearchWorkorderFragment.OnFragmentInteractionListener, WorkordersFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +41,9 @@ public class MainActivity extends AppCompatActivity
 
        getSupportActionBar().setTitle("ID: "+SaveSharedPreference.getId(this));
 
-       /* TextView idText = (TextView) findViewById(R.id.id_number);
-        idText.setText("Ulogovan si kao predrag tasicuser1");*/
-
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        /*TextView idText = (TextView) findViewById(R.id.id_number);
-        idText.setText(SaveSharedPreference.getUser(this));*/
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -64,7 +53,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        android.support.v4.app.FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+        tx.replace(R.id.content_frame,new SearchWorkorderFragment());
+        tx.commit();
 
     }
 
@@ -109,7 +100,9 @@ public class MainActivity extends AppCompatActivity
 
 
         if (id == R.id.nav_manage) {
-
+            android.support.v4.app.FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.nav_view,new WorkordersFragment());
+            tx.commit();
         }
         if(id == R.id.nav_logout){
             logout();
@@ -126,7 +119,7 @@ public class MainActivity extends AppCompatActivity
 
         alertDlg.setMessage("Da li ste sigurni da zelite da se izlogujete?");
 
-        alertDlg.setCancelable(false); // We avoid that the dialong can be cancelled, forcing the user to choose one of the options
+        alertDlg.setCancelable(false);
 
         alertDlg.setPositiveButton("Da", new DialogInterface.OnClickListener() {
 
@@ -142,7 +135,6 @@ public class MainActivity extends AppCompatActivity
                 editor.commit();
 
 
-
             }
 
         }
@@ -153,7 +145,6 @@ public class MainActivity extends AppCompatActivity
 
             public void onClick(DialogInterface dialog, int which) {
 
-
             }
 
         });
@@ -161,4 +152,14 @@ public class MainActivity extends AppCompatActivity
         alertDlg.create().show();
     }
 
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
 }
