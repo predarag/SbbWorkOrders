@@ -1,7 +1,6 @@
 package rs.co.sbb.sbbworkorders.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,7 +20,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import rs.co.sbb.sbbworkorders.R;
-import rs.co.sbb.sbbworkorders.entity.response.Etizlaz;
 import rs.co.sbb.sbbworkorders.entity.response.GetWoResponse;
 import rs.co.sbb.sbbworkorders.ws.rest.HttpMtClientWS;
 
@@ -92,7 +90,7 @@ public class SearchWorkorderFragment extends Fragment   {
 
                             if(null != woResponse){
 
-                                WorkorderResultActivity wra = new WorkorderResultActivity();
+                                WorkorderResultFragment wra = new WorkorderResultFragment();
                                 Bundle args = new Bundle();
                                 args.putSerializable("etList",(Serializable) woResponse.getWOData().getETIZLAZ());
                                 wra.setArguments(args);
@@ -101,7 +99,7 @@ public class SearchWorkorderFragment extends Fragment   {
                                 tx.replace(R.id.content_frame,wra);
                                 tx.commit();
 
-                 /*               Intent intent = new Intent(getActivity(), WorkorderResultActivity.class);
+                 /*               Intent intent = new Intent(getActivity(), WorkorderResultFragment.class);
                                 intent.putExtra("etList",(Serializable) woResponse.getWOData().getETIZLAZ());
                                 startActivity(intent);*/
 

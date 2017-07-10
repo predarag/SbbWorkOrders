@@ -31,7 +31,7 @@ import java.util.List;
 import rs.co.sbb.sbbworkorders.R;
 import rs.co.sbb.sbbworkorders.entity.response.Etizlaz;
 
-public class WorkorderResultActivity extends Fragment {
+public class WorkorderResultFragment extends Fragment {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -40,7 +40,7 @@ public class WorkorderResultActivity extends Fragment {
     private List<Etizlaz> etizlazList;
 
 
-    public WorkorderResultActivity(){};
+    public WorkorderResultFragment(){};
 
 
     @Override
